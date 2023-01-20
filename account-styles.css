@@ -1,0 +1,24 @@
+.netflix-logo {
+    height: 50px;
+}
+
+.avatar {
+    height: 40px;
+}
+
+.navbar {
+    background-color: black;
+}
+
+.container {
+    max-width: 800px;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 18px;
+    COLOR: rgb(150, 149, 147);
+}

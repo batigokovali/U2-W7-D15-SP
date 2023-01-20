@@ -1,0 +1,98 @@
+body {
+    background-color: rgb(19, 18, 18);
+}
+
+.navbar-brand.mb-0.h1 img{
+    height: 50px;
+}
+
+.navbar.navbar-light.bg-transparent {
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3211485277704832) 55%, rgba(0,0,0,1) 100%);
+}
+
+h1 {
+    color: white;
+}
+
+.col-lg-3 img {
+    height: 8rem;
+   
+}
+
+.container {
+    max-width: 650px;
+}
+
+input {
+    height: 30px;
+}
+
+select {
+    width: 100px;
+    border-radius: 0;
+    background-color: black;
+    color: white;
+    font-weight: 500;
+    border: 1px solid;
+}
+
+.text-secondary {
+    font-size: 18px;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.button {
+    background-color: transparent;
+    border: none;
+    color: rgb(127, 127, 127);
+}
+
+hr {
+    border: 5px solid rgb(54, 54, 54);;
+}
+
+label {
+    color: rgb(247, 247, 240);
+}
+
+.avatar {
+    position: relative;
+}
+
+.pencil {
+    position: absolute;
+    border: solid 1px white;
+    color: white;
+    background-color: black;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    top:90px;
+    left: 10px;
+    opacity: 0;
+    transition: opacity 500ms;
+}
+
+.avatar:hover .pencil{
+    opacity: 1;
+}
+
+.bottom-btn {
+    border-radius: 0;
+    background-color: transparent;
+    color: rgb(127, 127, 127);
+    transition: 500ms;
+}
+
+.bottom-btn:hover {
+    background-color: white;
+    color:black
+}

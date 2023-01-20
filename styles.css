@@ -1,0 +1,69 @@
+body {
+    background-color: rgb(26, 26, 26);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2, h3 {
+    color: rgb(253, 253, 253);
+}
+
+.netflix-logo {
+    height: 50px;
+}
+
+.avatar {
+    height: 40px;
+}
+
+.btn.btn-secondary.dropdown-toggle.bg-transparent.border-0.pr-0:focus {
+box-shadow: none;
+}
+
+.btn.btn-secondary.dropdown-toggle.border-1.rounded-0 {
+    background-color: black;
+}
+
+.row.no-gutters > img {
+    object-fit: contain;
+}
+
+
+.carousel-control-next, .carousel-control-prev {
+width: 50px;
+background-color: transparent;
+border: none;
+transition: opacity 500ms;
+opacity: 0;
+}
+
+.carousel-control-next {
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.22030819163602944) 26%, rgba(0,0,0,0.4471989479385504) 54%, rgba(0,0,0,0.5592437658657212) 74%, rgba(0,0,0,0.7413165949973739) 100%);
+}
+
+.carousel-control-prev {
+    background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.556442645417542) 26%, rgba(0,0,0,0.3883754185267857) 54%, rgba(0,0,0,0.1558824213279062) 74%, rgba(0,0,0,0) 100%);
+} 
+
+.carousel.slide:hover .carousel-control-prev, .carousel.slide:hover .carousel-control-next {
+    opacity: 1;
+    
+}
+
+
+.container.bottom-footer.mt-5.text-secondary p {
+    font-size: 0.8rem;
+}
+
+.container.bottom-footer.mt-5.text-secondary p:last-of-type {
+    font-size: 0.7rem;
+}
+
+.row.mx-5.px-3.icons  > i {
+    font-size: 1.75rem;
+}
+
+.btn.btn-dark.bg-transparent.rounded-0.my-3.text-secondary {
+    font-size: 0.8rem; 
+}
