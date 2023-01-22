@@ -1,6 +1,7 @@
 body {
     background-color: rgb(26, 26, 26);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
 }
 
 h2, h3 {
@@ -8,7 +9,7 @@ h2, h3 {
 }
 
 * img {
-    height: 250px;
+    height: 400px;
     object-fit: cover;
 }
 

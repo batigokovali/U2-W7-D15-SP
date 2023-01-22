@@ -119,6 +119,7 @@ const deleteMovie = async (idToDelete) => {
 
 const editMovie = async() => {
     try {
+        
         const editedMovie = {
             name : document.querySelector("#movie-name").value,
             description : document.querySelector("#movie-description").value,
