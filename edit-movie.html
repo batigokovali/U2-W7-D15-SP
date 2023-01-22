@@ -16,7 +16,7 @@
     />
     <link rel="stylesheet" href="./styles/backoffice.css" />
     <link rel="shortcut icon" href="#" />
-    <title>Backoffice</title>
+    <title>Edit Movie</title>
   </head>
   <body>
     <nav
@@ -85,9 +85,6 @@
       </div>
     </nav>
     <div class="container">
-      <nav class="navbar navbar-light bg-transparent">
-        <a class="navbar-brand text-white" href="#">Add Movie</a>
-      </nav>
       <div class="row">
         <div class="input-group mb-3 mt-2">
           <div class="input-group-prepend">
@@ -136,29 +133,18 @@
         <button
           type="button"
           class="btn btn-primary col-lg-3 mx-auto"
-          onclick="addMovie(event)"
+          onclick="editMovie(event)"
         >
-          Add Movie
+          Edit Movie
         </button>
       </div>
     </div>
-    <div class="container mt-3">
-      <nav class="navbar navbar-light bg-transparent">
-        <a class="navbar-brand text-white" href="#">Movies</a>
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle"
-            type="button"
-            data-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Genres
-          </button>
-          <div class="dropdown-menu" id="genres"></div>
-        </div>
-      </nav>
+    <div class="container">
+        <div class="row" id="movies">
 
-      <div class="row" id="movies"></div>
+        </div>
+    </div>
+     
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

@@ -1,12 +1,10 @@
-const url = "https://striveschool-api.herokuapp.com/api/movies"
-const category = "Horror";
-
+const url = "https://striveschool-api.herokuapp.com/api/movies/"
 const params = new URLSearchParams(location.search)
 const id = params.get("id")
-console.log(id)
 
 
-const addMovie = async (publishMovie) => {
+
+const addMovie = async () => {
     try {
         const name = document.querySelector("#movie-name").value
         const description = document.querySelector("#movie-description").value
@@ -22,21 +20,49 @@ const addMovie = async (publishMovie) => {
             })
             }
         let res = await fetch(url, options)
-        console.log(movie)
         if(res.ok) {
-            console.log(res)
+        console.log(res)   
         }
     } catch (error) {
         console.log(error)
-    }
-    getMovies()
+    } 
+    getGenres()
 }
 
 window.onload = async () => {
-    await getMovies()
+    await getGenres()
 }
 
-const getMovies = async (category) => {
+const getGenres = async () => {
+    try {
+        const options = {
+            method: "GET",
+            headers: {
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2M5NDIzZWU3MzczODAwMTUzNzQzYjIiLCJpYXQiOjE2NzQxMzc2MjAsImV4cCI6MTY3NTM0NzIyMH0.lW0cx9aTKiLUaPLpRv2gXUgac5CwauCPFmdAyMuqCdo"
+            }
+        } 
+        const res = await fetch(url, options)
+        const genres = await res.json()
+        renderGenres(genres)
+        getMovies(genres)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+
+const renderGenres = async (arrayOfGenres) => {
+    const listBackoffice = document.querySelector("#genres")
+    listBackoffice.innerHTML = "";
+    arrayOfGenres.forEach(genre => 
+        listBackoffice.innerHTML += `
+        <button class="dropdown-item" href="" onclick="getMovies('${genre}')">${genre}</button>
+        `,
+)}
+
+
+const getMovies = async (genres) => {
     try {
         const options = { 
             method: "GET",
@@ -44,36 +70,38 @@ const getMovies = async (category) => {
                 "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2M5NDIzZWU3MzczODAwMTUzNzQzYjIiLCJpYXQiOjE2NzQxMzc2MjAsImV4cCI6MTY3NTM0NzIyMH0.lW0cx9aTKiLUaPLpRv2gXUgac5CwauCPFmdAyMuqCdo"
             }
             }
-        const res = await fetch(url + "/" + category, options)
-        const movies = await res.json()
-        renderMovies(movies)
-        console.log(movies)
+        const res = await fetch(url + genres, options)
+        const genre = await res.json()
+        renderMovies(genre)
     } catch (error) {
         console.log(error)
     }
 }
 
-const renderMovies = (arrayOfMovies) => {
+const renderMovies = (arrayOfSingleMovie) => {
     const card = document.querySelector("#movies")
     card.innerHTML = "";
-    arrayOfMovies.forEach(singleMovie => {
-       const {name, description, category, imageUrl, _id} = singleMovie;
-       card.innerHTML += `<div class="card">
-       <img src="${imageUrl}" class="card-img-top" alt="...">
-       <div class="card-body">
-         <h5 class="card-title">${name}</h5>
-         <p class="card-text">${description}</p>
-         <p class="card-text">${category}</p>
-         <a href='./backoffice.html?id=${_id}' class='btn btn-primary m-1'> <i class="bi bi-pencil-square"></i> </a>
-         <a class='btn btn-info rounded-pill m-1' onclick='deleteMovie("${_id}")'> <i class="bi bi-trash3"></i> Delete </a>
-       </div>
-     </div>`
-    });
+    arrayOfSingleMovie.forEach(singleMovie => {
+        const {name, description, category, imageUrl, _id} = singleMovie;
+        card.innerHTML += `<div class="card col-lg-3 col-md-4 col-sm-6">
+        <img src="${imageUrl}" class="card-img-top" alt="...">
+        <div class="card-body px-0 d-flex flex-column ">
+          <h5 class="card-title">${name}</h5>
+          <p class="card-text">${description}</p>
+          <p class="card-text">${category}</p>
+          <div class="d-flex justify-content-center align-items-end">
+          <a href='./edit-movie.html?id=${_id}' onclick="getMovies('${category}')" class='btn btn-primary m-1 mt-auto'> <i class="bi bi-pencil-square"></i> </a>
+          <a class='btn btn-info rounded-pill m-1 ' onclick='deleteMovie("${_id}")'> <i class="bi bi-trash3"></i> Delete </a>
+          </div>
+        </div>
+      </div>`
+     });
 }
+
 
 const deleteMovie = async (idToDelete) => {
     try {
-        let res = await fetch(url + idToDelete,
+        let res = await fetch(url + "/" + idToDelete,
         {
             method: "DELETE",
             headers: {
@@ -108,7 +136,6 @@ const editMovie = async() => {
         }) 
         if(res.ok) {
             console.log(res)
-            getMovies()
             document.querySelector("#movie-name").value ="";
             document.querySelector("#movie-description").value = "";
             document.querySelector("#movie-category").value= "";
@@ -118,3 +145,5 @@ const editMovie = async() => {
         console.log(error)
     }
 }
+
+

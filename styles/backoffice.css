@@ -10,3 +10,8 @@ body {
 .avatar {
     height: 40px;
 }
+
+* img {
+    height: 150px;
+    object-fit: cover;
+}
